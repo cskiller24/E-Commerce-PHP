@@ -1,18 +1,16 @@
 # E-Commerce-PHP
 To advance study of the upcoming project in EIT PHP E-Commerce
-/* Project Features
-    -   Title: PHP - Ecommerce 
+<br>Project Features
+    -   Title: PHP - Ecommerce <br>
 
-Features
-    -   Users can Register to be buyer and seller (separate accounts)
-    -   Buyers can by products set by the seller
-    -   Seller can list a product (including pictures)
-    -   Seller can remove their product (unlist)
-    -   Buyers can see their purchase history
-    -   Sellers can view their product purchase
-    -   Sellers can edit the product details
-
-    -   Admin Access can remove all of the products in sellers
-     */
+Features<br>
+    -   Users can Register to be buyer and seller (separate accounts)<br>
+    -   Buyers can by products set by the seller<br>
+    -   Seller can list a product (including pictures)<br>
+    -   Seller can remove their product (unlist)<br>
+    -   Buyers can see their purchase history<br>
+    -   Sellers can view their product purchase<br>
+    -   Sellers can edit the product details<br>
+    -   Admin Access can remove all of the products in seller<br>
      
-Languages to be used PHP, Javascript and Bootstrap for designs
+<br>Languages to be used PHP, Javascript and Bootstrap for designs
