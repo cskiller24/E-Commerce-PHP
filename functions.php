@@ -10,11 +10,13 @@ function checkloginBuyer($conn)
     if ($seller_data && mysqli_num_rows($seller_data) > 0) {
       $buyer_data = mysqli_fetch_assoc($seller_data);
       return $buyer_data;
+    } else {
+      echo "wow";
     }
-    else{echo "wow";}
+  } else {
+    header("Location: login_buyer.php");
+    die();
   }
-  else{header("Location: login_buyer.php");
-    die();}
 }
 
 function checkloginSeller($conn)
@@ -28,27 +30,27 @@ function checkloginSeller($conn)
       $seller_data = mysqli_fetch_assoc($seller_data);
       return $seller_data;
     }
+  } else {
+    header("Location: login_seller.php");
+    die();
   }
-  else{header("Location: login_seller.php");
-    die();}
 }
-
 
 function checkloginAdmin($conn)
 {
   if (isset($_SESSION["admin_id"])) {
     $id = $_SESSION["admin_id"];
-    $query = "select * from admin where admin_id = '$id' limit 1";
-    $seller_data = mysqli_query($conn, $query);
+    $query = "select * from admin where id = '$id' limit 1";
+    $admin = mysqli_query($conn, $query);
 
-    if ($seller_data && mysqli_num_rows($seller_data) > 0) {
-      $seller_data = mysqli_fetch_assoc($seller_data);
-      return $seller_data;
-
+    if ($admin && mysqli_num_rows($admin) > 0) {
+      $admin = mysqli_fetch_assoc($admin);
+      return $admin;
     }
+  } else {
+    header("Location: login_admin.php");
+    die();
   }
-  else{header("Location: login_admin.php");
-    die();}
 }
 
 function check_emailBuyer($conn, $buyer_email)
@@ -77,11 +79,18 @@ function check_emailSeller($conn, $seller_email)
   die();
 }
 
-function getProductDetails($conn,$id)
+function getProductDetails($conn, $id)
 {
   $productDetails = "SELECT * FROM product WHERE product_id = '$id'";
-  $productResult = mysqli_query($conn ,$productDetails);
+  $productResult = mysqli_query($conn, $productDetails);
   $productResult = mysqli_fetch_assoc($productResult);
   return $productResult;
 }
 
+function getSellerDetails($conn, $id)
+{
+  $toSql = "SELECT * FROM sellers WHERE seller_id = '$id'";
+  $result = mysqli_query($conn, $toSql);
+  $result = mysqli_fetch_assoc($result);
+  return $result;
+}

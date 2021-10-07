@@ -6,24 +6,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $user = $_POST["user"];
   $password = md5($_POST["password"]);
 
-    if (isset($_POST["user"]) && isset($_POST["password"])) {
-        $sendQuery = "SELECT * FROM admin WHERE admin_user = '$user' AND admin_password = '$password'";
-        $result = mysqli_query($conn, $sendQuery);
+  if (isset($_POST["user"]) && isset($_POST["password"])) {
+    $sendQuery = "SELECT * FROM admin WHERE admin_user = '$user' AND admin_password = '$password'";
+    $result = mysqli_query($conn, $sendQuery);
 
-        if ($result && mysqli_num_rows($result) > 0) {
-            empty($_SESSION);
-            $admin = mysqli_fetch_assoc($result);
-            $_SESSION["admin_id"] = $admin["id"];
-            
-            header("Location: adminpage.php");
-            die();
+    if ($result && mysqli_num_rows($result) > 0) {
+      $admin = mysqli_fetch_assoc($result);
+      $_SESSION["admin_id"] = $admin["id"];
 
-        } else{echo "Wrong Username or Password";}
-    } else {echo "Please Enter Information";}
+      header("Location: adminpage.php");
+      die();
+    } else {
+      echo "Wrong Username or Password";
+    }
+  } else {
+    echo "Please Enter Information";
+  }
 }
 
-if(isset($_SESSION["admin_id"])){
- header("Location: adminpage.php");
+if (isset($_SESSION["admin_id"])) {
+  header("Location: adminpage.php");
 }
 ?>
 

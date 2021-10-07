@@ -1,35 +1,34 @@
 <?php
-    session_start();
-    include("dbconnection.php");
-    include("functions.php");
-    
-    $seller_data = checkloginSeller($conn);
+session_start();
+include "dbconnection.php";
+include "functions.php";
 
+$seller_data = checkloginSeller($conn);
 
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-        $seller_password = ($seller_data['seller_password']);
-        $productImage = getProductDetails($conn, $id);
-        $productImage = $productImage['image'];
+if (isset($_GET["id"])) {
+  $id = $_GET["id"];
+  $seller_password = $seller_data["seller_password"];
+  $productImage = getProductDetails($conn, $id);
+  $productImage = $productImage["image"];
 
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
-            $password = md5($_POST['password']);
-            if($password == $seller_password){
-                $toSql = "DELETE FROM product WHERE product_id = '$id'";
-                unlink($productImage);
-                if(mysqli_query($conn,$toSql)){
-                    header("Location: store_seller.php");
-                    die;
-                }
-                else{echo "error deleting the product";}
-            }
-            else{echo "Wrong Password";}
-        }
-    }
-    else{
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $password = md5($_POST["password"]);
+    if ($password == $seller_password) {
+      $toSql = "DELETE FROM product WHERE product_id = '$id'";
+      unlink($productImage);
+      if (mysqli_query($conn, $toSql)) {
         header("Location: store_seller.php");
+        die();
+      } else {
+        echo "error deleting the product";
+      }
+    } else {
+      echo "Wrong Password";
     }
-
+  }
+} else {
+  header("Location: store_seller.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

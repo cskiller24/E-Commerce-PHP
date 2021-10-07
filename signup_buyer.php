@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     !empty($confirmPass)
   ) {
     if ($buyer_password === $confirmPass) {
-      $checkEmail = check_emailBuyer($buyer_email);
+      $checkEmail = check_emailBuyer($conn, $buyer_email);
 
       if ($checkEmail == "noEmail") {
         $buyer_password = md5($buyer_password);
