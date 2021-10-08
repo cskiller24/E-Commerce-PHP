@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2021 at 07:40 AM
+-- Generation Time: Oct 08, 2021 at 06:05 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -53,8 +53,20 @@ CREATE TABLE `buyers` (
   `buyer_contactNumber` varchar(15) NOT NULL,
   `buyer_name` varchar(255) NOT NULL,
   `buyer_password` varchar(255) NOT NULL,
-  `carts` varchar(500) NOT NULL,
   `registered_date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(10) NOT NULL,
+  `product_id` varchar(255) NOT NULL,
+  `buyer_id` varchar(255) NOT NULL,
+  `amount` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -70,7 +82,7 @@ CREATE TABLE `product` (
   `product_detail` varchar(255) NOT NULL,
   `seller_name` varchar(255) NOT NULL,
   `price` double(9,2) NOT NULL,
-  `amount` varchar(255) NOT NULL,
+  `amount` int(10) NOT NULL,
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -118,6 +130,12 @@ ALTER TABLE `buyers`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -144,6 +162,12 @@ ALTER TABLE `transactions`
 --
 ALTER TABLE `buyers`
   MODIFY `id` bigint(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product`
