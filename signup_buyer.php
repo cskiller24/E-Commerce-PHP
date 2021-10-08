@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Sign Up">
     </form>
 
-    <a href="login.php">Login</a>
+    <a href="login_buyer.php">Login</a>
     <a href="signup_seller.php">Become a Seller</a>
 </body>
 </html>

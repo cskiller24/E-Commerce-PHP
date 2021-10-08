@@ -49,6 +49,7 @@ if (isset($_SESSION["seller_id"])) {
 
     </form>
     <a href="signup_seller.php">Sign Up</a>
+    <a href="login_buyer.php">Login as Buyer</a>
     <a href="login_admin.php">Admin Access</a>
 </body>
 </html>
