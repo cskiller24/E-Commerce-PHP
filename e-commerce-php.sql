@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2021 at 06:05 AM
+-- Generation Time: Oct 14, 2021 at 04:50 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -66,6 +66,7 @@ CREATE TABLE `cart` (
   `id` int(10) NOT NULL,
   `product_id` varchar(255) NOT NULL,
   `buyer_id` varchar(255) NOT NULL,
+  `seller_id` varchar(255) NOT NULL,
   `amount` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -80,9 +81,8 @@ CREATE TABLE `product` (
   `product_id` varchar(100) NOT NULL,
   `product_name` varchar(255) NOT NULL,
   `product_detail` varchar(255) NOT NULL,
-  `seller_name` varchar(255) NOT NULL,
+  `seller_id` varchar(255) NOT NULL,
   `price` double(9,2) NOT NULL,
-  `amount` int(10) NOT NULL,
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -111,11 +111,15 @@ CREATE TABLE `sellers` (
 CREATE TABLE `transactions` (
   `id` bigint(20) NOT NULL,
   `trans_id` varchar(255) NOT NULL,
-  `product_name` varchar(255) NOT NULL,
-  `quantity` varchar(255) NOT NULL,
+  `product_id` varchar(1000) NOT NULL,
+  `amount` varchar(255) NOT NULL,
   `payment_method` varchar(255) NOT NULL,
-  `buyer_name` varchar(255) NOT NULL,
-  `seller_name` varchar(255) NOT NULL,
+  `buyer_id` varchar(255) NOT NULL,
+  `seller_id` varchar(1000) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `contact_number` varchar(100) NOT NULL,
   `transaction_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
