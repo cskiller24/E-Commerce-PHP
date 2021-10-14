@@ -5,7 +5,7 @@ session_start();
     $seller_data = checkloginSeller($conn);
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $seller_name = $seller_data['seller_name'];
+        $seller_id = $seller_data['seller_id'];
         $product_id = uniqid();
         $product_name = $_POST['name'];
         $product_details = $_POST['details'];
@@ -16,15 +16,13 @@ session_start();
         if( !empty($product_name) &&
             !empty($product_details) &&
             !empty($price) &&
-            !empty($amount) &&
-            is_numeric($amount) &&
             is_numeric($price) &&
             strlen($_FILES['image']['name'] != 0)
         ){
             //Move upload folder in file
             move_uploaded_file($_FILES['image']['tmp_name'],"product-image/".$_FILES["image"]["name"]);
 
-            $toSQL = "INSERT INTO product (product_id, product_name, product_detail, seller_name, price, amount, image) VALUES ('$product_id','$product_name','$product_details','$seller_name','$price','$amount','$image')";
+            $toSQL = "INSERT INTO product (product_id, product_name, product_detail, seller_id, price, image) VALUES ('$product_id','$product_name','$product_details','$seller_id','$price','$image')";
 
             mysqli_query($conn, $toSQL);
 
@@ -53,8 +51,6 @@ session_start();
         <textarea name="details" rows="3"></textarea>
         <label for="price">Price</label>
         <input type="text" name="price">
-        <label for="amount">Amount</label>
-        <input type="text" name="amount">
         <label for="image">Image</label>
         <input type="file" name="image">
         <input type="submit" name="submit" value="Submit">
