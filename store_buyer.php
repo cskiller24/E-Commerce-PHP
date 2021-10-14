@@ -2,7 +2,7 @@
 session_start();
 include "dbconnection.php";
 include "functions.php";
-include("cart_functions.php");
+include "cart_functions.php";
 
 $buyer_data = checkloginBuyer($conn);
 
@@ -42,5 +42,7 @@ $result = mysqli_query($conn, $toSql);
         </div>
     <?php } ?>    
     <a href="logout_buyer.php">Logout</a>
+    <a href="cart_buyer.php">Cart</a>
+    <a href="transaction_buyer.php">Transactions</a>
 </body>
 </html>

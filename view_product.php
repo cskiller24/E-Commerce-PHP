@@ -37,7 +37,6 @@
         <img src="<?php echo($product['image']); ?>" alt="image">
         <p>Details: <?php echo($product['product_detail']); ?></p>
         <p>PHP:<?php echo($product['price']); ?></p>
-        <p>Amount:<?php echo($product['amount']); ?></p>
     </div>
         <form method="post">
             <input type="hidden" name="id" value="<?php echo($product['product_id']); ?>">

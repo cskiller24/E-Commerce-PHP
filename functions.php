@@ -5,13 +5,11 @@ function checkloginBuyer($conn)
   if (isset($_SESSION["buyer_id"])) {
     $id = $_SESSION["buyer_id"];
     $query = "select * from buyers where buyer_id = '$id' limit 1";
-    $seller_data = mysqli_query($conn, $query);
+    $buyer_data = mysqli_query($conn, $query);
 
-    if ($seller_data && mysqli_num_rows($seller_data) > 0) {
-      $buyer_data = mysqli_fetch_assoc($seller_data);
+    if ($buyer_data && mysqli_num_rows($buyer_data) > 0) {
+      $buyer_data = mysqli_fetch_assoc($buyer_data);
       return $buyer_data;
-    } else {
-      echo "wow";
     }
   } else {
     header("Location: login_buyer.php");
@@ -90,6 +88,13 @@ function getProductDetails($conn, $id)
 function getSellerDetails($conn, $id)
 {
   $toSql = "SELECT * FROM sellers WHERE seller_id = '$id'";
+  $result = mysqli_query($conn, $toSql);
+  $result = mysqli_fetch_assoc($result);
+  return $result;
+}
+
+function getSellerDetails2($conn, $product_id){
+  $toSql = "SELECT * FROM product WHERE products = '$product_id'";
   $result = mysqli_query($conn, $toSql);
   $result = mysqli_fetch_assoc($result);
   return $result;

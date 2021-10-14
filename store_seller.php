@@ -4,9 +4,9 @@ include "dbconnection.php";
 include "functions.php";
 
 $seller_data = checkloginSeller($conn);
-$seller_name = $seller_data["seller_name"];
+$seller_id = $seller_data["seller_id"];
 
-$query = "SELECT * FROM product WHERE seller_name = '$seller_name'";
+$query = "SELECT * FROM product WHERE seller_id = '$seller_id'";
 
 $result = mysqli_query($conn, $query);
 
