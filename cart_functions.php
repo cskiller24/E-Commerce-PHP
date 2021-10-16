@@ -42,5 +42,5 @@
         $toSql = "DELETE FROM cart WHERE product_id = '$id' AND buyer_id = '$buyer_id'";
         mysqli_query($conn, $toSql);
     }
-
+    
 ?>

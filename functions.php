@@ -1,5 +1,7 @@
 <?php
 
+use function PHPSTORM_META\elementType;
+
 function checkloginBuyer($conn)
 {
   if (isset($_SESSION["buyer_id"])) {
@@ -77,25 +79,35 @@ function check_emailSeller($conn, $seller_email)
   die();
 }
 
-function getProductDetails($conn, $id)
-{
-  $productDetails = "SELECT * FROM product WHERE product_id = '$id'";
-  $productResult = mysqli_query($conn, $productDetails);
-  $productResult = mysqli_fetch_assoc($productResult);
-  return $productResult;
+function getBuyerDetails($conn, $id){
+  $toSql = "SELECT * FROM buyers WHERE buyer_id = '$id'";
+  $result = mysqli_query($conn, $toSql);
+  if($result && mysqli_num_rows($result) > 0){
+    $result = mysqli_fetch_assoc($result);
+    return $result;
+  }
+  else return false;
 }
 
 function getSellerDetails($conn, $id)
 {
   $toSql = "SELECT * FROM sellers WHERE seller_id = '$id'";
   $result = mysqli_query($conn, $toSql);
-  $result = mysqli_fetch_assoc($result);
-  return $result;
+  if($result && mysqli_num_rows($result) > 0){
+    $result = mysqli_fetch_assoc($result);
+    return $result;
+  }
+  else return false;
+
 }
 
-function getSellerDetails2($conn, $product_id){
-  $toSql = "SELECT * FROM product WHERE products = '$product_id'";
+function getProductDetails($conn, $id)
+{
+  $toSql = "SELECT * FROM product WHERE product_id = '$id'";
   $result = mysqli_query($conn, $toSql);
-  $result = mysqli_fetch_assoc($result);
-  return $result;
+  if($result && mysqli_num_rows($result) > 0){
+    $result = mysqli_fetch_assoc($result);
+    return $result;
+  }
+  else return false;
 }

@@ -16,7 +16,7 @@ $result = mysqli_query($conn, $toSql);
 
         if($cart == "SUCCESS"){
             echo"SUCCESS";
-        }else{echo"FAILED";}
+        }
     }   
 ?>
 

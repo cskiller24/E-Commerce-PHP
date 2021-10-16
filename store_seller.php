@@ -37,6 +37,7 @@ $result = mysqli_query($conn, $query);
 
     <a href="addproduct_seller.php">Add a product</a>
     <a href="logout_seller.php">Logout</a>
+    <a href="transaction_seller.php">Transactions</a>
 
 </body>
 </html>
