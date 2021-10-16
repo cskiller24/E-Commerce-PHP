@@ -88,12 +88,14 @@ session_start();
 </html>
 
 <?php 
+$result = mysqli_query($conn, $toSql);
+$getBuyerCart = mysqli_fetch_all($result, MYSQLI_ASSOC);
 if(isset($_POST['COD'])){
     $address = $_POST['address'];
     $payment_method = "COD";
-    $status = "TO SHIP";
+    $status = "Pending Order";
     $transaction_id = uniqid();
-    foreach($result as $product){
+    foreach($getBuyerCart as $product){
         $product_id = $product['product_id'];
         $buyer_id = $product['buyer_id'];
         $seller_id = $product['seller_id'];
@@ -125,18 +127,17 @@ if(isset($_POST['COD'])){
             if($result){
                 $toSql = "DELETE FROM cart WHERE buyer_id = '$buyer_id' AND product_id = '$product_id'";
                 $result = mysqli_query($conn, $toSql);
-                header("Location: store_buyer.php");
-                die();
-            }else{echo "ERROR"; die();}
-    }        
+            }else{echo "ERROR";}
+    }
+    if($result) header("Location: store_buyer.php");        
 }
 if(isset($_POST['GCASH'])){
     $address = $_POST['address'];
     $contact_number = $_POST['number'];
     $payment_method = "GCASH";
-    $status = "TO SHIP";
+    $status = "Pending Order";
     $transaction_id = uniqid();
-    foreach($result as $product){
+    foreach($getBuyerCart as $product){
         $product_id = $product['product_id'];
         $buyer_id = $product['buyer_id'];
         $seller_id = $product['seller_id'];
@@ -170,9 +171,8 @@ if(isset($_POST['GCASH'])){
             if($result){
                 $toSql = "DELETE FROM cart WHERE buyer_id = '$buyer_id' AND product_id = '$product_id'";
                 $result = mysqli_query($conn, $toSql);
-                header("Location: store_buyer.php");
-                die();
-            }else{echo "ERROR"; die();}
+            }else{echo "ERROR";}
         }
+        if($result) header("Location: store_buyer.php");
     }
 ?>
