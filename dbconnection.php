@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?php
 define("DB_HOST", "localhost");
 define("DB_USERNAME", "root");
@@ -12,3 +13,12 @@ if (!$conn) {
 }
 
 ?>
+=======
+<?php
+    define("DB_HOST", "localhost");
+    define("DB_USERNAME", "root");
+    define("DB_PASSWORD", "");
+    define("DB_NAME", "e-commerce-php");
+
+$conn = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+>>>>>>> Stashed changes

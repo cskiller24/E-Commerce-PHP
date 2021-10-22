@@ -1,0 +1,52 @@
+.global{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../../resources/seller-login.jpg);
+    background-size: cover;
+    background-repeat: repeat-y;
+}
+
+.card{
+    width: 25%;
+    border: 3px solid #ccc;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 20px;
+    padding: 1%;
+}
+
+.login{
+    margin-right: -350px;
+}
+
+.link-light{
+    text-decoration: none !important;
+}
+
+@media (max-width: 960px) {
+    .global{
+        flex-direction: column;
+        height: 100%;
+        background-repeat: repeat-y;
+    }
+    .login{
+        margin-right: 0px;
+    }
+    .card{
+        margin-bottom: 50px;
+        width:55vw;
+    }
+}
+
+@media (max-width: 540px) {
+    .global{
+        flex-direction: column;
+    }
+    .card{
+        margin-bottom: 50px;
+        width:65vw;
+    }
+}

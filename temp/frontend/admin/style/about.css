@@ -1,0 +1,29 @@
+.background{
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../../resources/about-admin.jpg);
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: -100;
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+}
+
+h1{
+    font-size: 10rem !important;
+}
+
+p{
+    text-align: justify;
+    width: 65%;
+}
+
+
+@media (max-width: 768px) {
+    h1{
+        font-size: 85px !important;
+    }
+    p{
+        width: 100%;
+    }
+}
