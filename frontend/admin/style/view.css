@@ -1,0 +1,22 @@
+.seller-image{
+    width: 20%;
+}
+
+.seller-details{
+    width: 75%;
+}
+
+
+
+@media (max-width: 768px) {
+    .seller-image{
+        width: 100%
+    }
+    .seller-details{
+        margin-top: 20px;
+        width: 100%;
+    }
+    .seller-information{
+        flex-direction: column;
+    }
+}

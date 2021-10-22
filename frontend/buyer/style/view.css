@@ -1,0 +1,43 @@
+img{
+    max-width: 100%;
+    height: 300px;
+}
+
+.image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+}
+
+.details{
+    width: 60%;
+}
+
+.details-text{
+    text-align: justify;
+}
+
+.product-details{
+    display: flex;
+}
+
+.margins{
+    margin-left: 7px !important;
+}
+
+@media (max-width: 768px) {
+    .image{
+        width: 100%
+    }
+    .details{
+        width: 100%;
+    }
+    .product-details{
+        flex-direction: column;
+    }
+    .margins{
+        margin-left: -10px !important;
+    }
+
+}
