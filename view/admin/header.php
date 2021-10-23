@@ -14,7 +14,7 @@
                     <li class="nav-item px-4">
                         <div class="dropdown">
                             <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                USERNAME</button>
+                                Admin</button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="settings.php"><i class="fas fa-cogs"></i> Settings</a></li>
                                 <li><a class="dropdown-item" href="transactions.php"><i class="fas fa-history"></i> Transaction History</a></li>
