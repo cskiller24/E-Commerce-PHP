@@ -10,6 +10,7 @@
         if($verify == true){
             session_start();
             $_SESSION['buyer_id'] = $result['buyer_id'];
+            $_SESSION['buyer_name'] = $result['buyer_name'];
             header("Location: ../../view/buyer/homepage.php");
             exit();
         }
