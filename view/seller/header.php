@@ -1,3 +1,7 @@
+<?php
+$name = preg_split('/\s+/', $_SESSION['seller_name']);
+$seller_name = $name[0];
+?>
 <nav class="navbar navbar-expand-md bg-danger navbar-dark py-3">
         <div class="container">
             <a href="homepage.php" class="navbar-brand navv fw-bold">Demo Shop</a>
@@ -17,7 +21,7 @@
                     <li class="nav-item px-3">
                         <div class="dropdown">
                             <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                USERNAME</button>
+                                <?php echo $seller_name ?></button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="settings.php"><i class="fas fa-cogs"></i> Settings</a></li>
                                 <li><a class="dropdown-item" href="transaction.php"><i class="fas fa-history"></i> Order History</a></li>

@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    //*Check if the seller is already logged in
+    if(!isset($_SESSION['seller_id'])){
+        header("Location: login_register.php");
+        exit();
+    }
+    include("../../classes/seller/homepage.class.php");
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,16 +25,20 @@
 <body>
     <?php include("header.php"); ?>
 
+    <?php if($_SESSION['product_seller']){?>
     <div class="products my-4">
-        <?php for($i = 0; $i < 4; $i++){ ?>
+        <?php foreach($_SESSION['product_seller'] as $product){?>
         <div class="product m-2 card p-3 border-danger">
-            <img src="../../product-image/index.jpg" alt="Product">
+            <img src="<?php echo $product['image']; ?>" alt="Product">
             <div class="card-body">
                 <div class="card-header">
-                    <div class="card-title text-center">PRODUCT 2</div>
+                    <div class="card-title text-center fw-bold"><?php echo $product['product_name']; ?></div>
+                </div>
+                <div class="card-text text-center">
+                    <div><?php echo $product['price']; ?> PHP</div>
                 </div>
                 <div class="a-links">
-                    <a href="view.php" class="btn btn-danger card-text mt-5">View</a>
+                    <a href="view.php?pid=<?php echo $product['product_id']; ?>" class="btn btn-danger card-text mt-5">View</a>
                     <button type="button" class="btn btn-danger card-text delete-btn" data-bs-toggle="modal" data-bs-target="#deleteProduct">
                         Delete
                     </button>
@@ -51,8 +66,10 @@
                 </div>
             </div>
         </div>
-        <?php }?>
+        <?php } ?>
     </div>
+    <?php } else echo "<h1 class='mt-5 text-center'>There is No Product</h1>";?>
+    
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
