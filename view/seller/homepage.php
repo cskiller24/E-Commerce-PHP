@@ -6,6 +6,21 @@
         exit();
     }
     include("../../classes/seller/homepage.class.php");
+
+    //**ERROR TRAPPING */
+    $delete_response = "";
+    if(isset($_GET['delete']) && $_GET['delete']=="err"){
+        $delete_response = "Error occured try again";
+    }
+    if(isset($_GET['delete']) && $_GET['delete']=="seller"){
+        $delete_response = "Error occured try again (seller)";
+    }
+    if(isset($_GET['delete']) && $_GET['delete']=="password"){
+        $delete_response = "Wrong Password";
+    }
+    if(isset($_GET['delete']) && $_GET['delete']=="success"){
+        $delete_response = "Successfully Deleted Product";
+    }
     
 ?>
 
@@ -26,6 +41,7 @@
     <?php include("header.php"); ?>
 
     <?php if($_SESSION['product_seller']){?>
+    <div class="text-center h1 mt-3"><?php echo $delete_response; ?></div>
     <div class="products my-4">
         <?php foreach($_SESSION['product_seller'] as $product){?>
         <div class="product m-2 card p-3 border-danger">
@@ -55,12 +71,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post">
+                    <form action="../../classes/seller/delete.class.php" method="post">
+                        <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
+                        <input type="hidden" name="seller_id" value="<?php echo $_SESSION['seller_id']; ?>">
+                        <input type="hidden" name="image" value="<?php echo $product['image']; ?>">
                         <input type="password" name="password" placeholder="Enter Password" class="form-control" required>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" value="Submit" class="btn btn-danger">
+                    <input type="submit" value="Submit" name="submit" class="btn btn-danger">
                     </form>
                 </div>
                 </div>
