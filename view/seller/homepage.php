@@ -7,21 +7,36 @@
     }
     include("../../classes/seller/homepage.class.php");
 
-    //**ERROR TRAPPING */
-    $delete_response = "";
+    $response = "";
+    //**ERROR TRAPPING DELETE*/
     if(isset($_GET['delete']) && $_GET['delete']=="err"){
-        $delete_response = "Error occured try again";
+        $response = "Error occured try again";
     }
     if(isset($_GET['delete']) && $_GET['delete']=="seller"){
-        $delete_response = "Error occured try again (seller)";
+        $response = "Error occured try again (seller)";
     }
     if(isset($_GET['delete']) && $_GET['delete']=="password"){
-        $delete_response = "Wrong Password";
+        $response = "Wrong Password";
     }
     if(isset($_GET['delete']) && $_GET['delete']=="success"){
-        $delete_response = "Successfully Deleted Product";
+        $response = "Successfully Deleted Product";
     }
-    
+    //**ERROR TRAPPING EDIT*/
+    if(isset($_GET['edit']) && $_GET['edit']=="emp"){
+        $response = "Empty Edit Details";
+    }
+    if(isset($_GET['edit']) && $_GET['edit']=="price"){
+        $response = "Price Must Be Numeric";
+    }
+    if(isset($_GET['edit']) && $_GET['edit']=="ext"){
+        $response = "Error File Extension";
+    }
+    if(isset($_GET['edit']) && $_GET['edit']=="failed"){
+        $response = "Error Edit";
+    }
+    if(isset($_GET['edit']) && $_GET['edit']=="success"){
+        $response = "Edit Sucessfull";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +56,7 @@
     <?php include("header.php"); ?>
 
     <?php if($_SESSION['product_seller']){?>
-    <div class="text-center h1 mt-3"><?php echo $delete_response; ?></div>
+    <div class="text-center h1 mt-3"><?php echo $response; ?></div>
     <div class="products my-4">
         <?php foreach($_SESSION['product_seller'] as $product){?>
         <div class="product m-2 card p-3 border-danger">

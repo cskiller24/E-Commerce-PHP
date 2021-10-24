@@ -41,7 +41,7 @@
                         <div class="details-text"><?php echo $product['product_detail']; ?></div>
                     </div>
                     <div class="product-actions">
-                        <a href="edit.php" class="btn btn-danger product-btn">Edit Product</a>
+                        <a href="edit.php?pid=<?php echo $product['product_id']; ?>" class="btn btn-danger product-btn">Edit Product</a>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteProduct">
                             Delete Product
                         </button>
