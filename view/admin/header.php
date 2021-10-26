@@ -12,10 +12,10 @@
                         <a href="about.php" class="nav-link">About</a>
                     </li>
                     <li class="nav-item px-4">
-                        <a href="buyer_homepage.php" class="nav-link">Buyer Section</a>
+                        <a href="homepage.php?view=buyer" class="nav-link">Buyer Section</a>
                     </li>
                     <li class="nav-item px-4">
-                        <a href="seller_homepage.php" class="nav-link">Seller Section</a>
+                        <a href="homepage.php?view=seller" class="nav-link">Seller Section</a>
                     </li>
                     <li class="nav-item px-4">
                         <div class="dropdown">
