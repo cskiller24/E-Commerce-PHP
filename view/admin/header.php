@@ -12,6 +12,12 @@
                         <a href="about.php" class="nav-link">About</a>
                     </li>
                     <li class="nav-item px-4">
+                        <a href="buyer_homepage.php" class="nav-link">Buyer Section</a>
+                    </li>
+                    <li class="nav-item px-4">
+                        <a href="seller_homepage.php" class="nav-link">Seller Section</a>
+                    </li>
+                    <li class="nav-item px-4">
                         <div class="dropdown">
                             <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Admin</button>
