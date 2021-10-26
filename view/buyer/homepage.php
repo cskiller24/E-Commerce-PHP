@@ -7,20 +7,23 @@ session_start();
         header("Location: login_register.php");
         exit();
     }
-//**PAGINATION */
-    if(!isset($_GET['page'])){
+//**ERROR TRAPPING */
+    if(isset($_GET['cart']) && $_GET['cart'] == "success"){
+        echo "<script>setTimeout(function(){alert('ADDED TO CART');},500);</script>";
+    }
+    elseif(isset($_GET['cart']) && $_GET['cart'] == "failed"){
+        echo "<script>setTimeout(function(){alert('ADDED TO CART');},500);</script>";
+    }
+    //**PAGINATION */
+    elseif(!isset($_GET['page'])){
         header("Location: homepage.php?page=1");
+        exit();
     }
-
-    include("../../classes/buyer/homepage.class.php");
-
-    if($_SESSION['products'] == false){
-        $product = false;
-    }
-    else{
-        $product = $_SESSION['products'];
-        var_dump($product);
-    }
+        include("../../classes/buyer/homepage.class.php");
+        
+        $pagination = $_SESSION['pagination'];
+        $products = $_SESSION['products'];
+    
 
 ?>
 
@@ -38,28 +41,31 @@ session_start();
 </head>
 <body>
     <?php include("header.php"); ?>
-    <?php if($product){?>
+    <?php if($products != false){?>
         <div class="products my-4">
+            <?php foreach($products as $product){?>
             <div class="product m-2 card p-3 border-dark">
-                <img src="../../product-image/index.jpg" alt="Product">
+                <img src="<?php echo $product['image']?>" alt="Product">
                 <div class="card-body">
                     <div class="card-header">
-                        <div class="card-title text-center">PRODUCT 2</div>
+                        <div class="card-title text-center"><?php echo $product['product_name'] ?></div>
                     </div>
+                        <div class="card-text text-center mt-3"><?php echo $product['price'] ?> PHP</div>
                     <div class="a-links">
-                        <a href="#" class="btn btn-dark card-text mt-5">Add to Cart</a>
-                        <a href="view.php" class="btn btn-dark card-text mt-5">View Item</a>
+                        <a href="../../classes/buyer/homepage.class.php?<?php echo "cart=".$product['product_id']."&sid=".$product['seller_id']."&bid=".$_SESSION['buyer_id']; ?>" class="btn btn-dark card-text mt-3">Add to Cart</a>
+                        <a href="view.php?pid=<?php echo $product['product_id']; ?>" class="btn btn-dark card-text mt-3">View Item</a>
                     </div>
                 </div>
             </div>
+            <?php } ?>
+
         </div>
             <nav class="center text-center">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#2">1</a></li>
-                    <li class="page-item active">
-                    <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#3">3</a></li>
+                    <?php for($i = 0; $i < $pagination; $i++){ ?>
+                    <li class="page-item"><a class="page-link" href="homepage.php?page=<?php echo $i+1; ?>"><?php echo $i+1; ?></a></li>
+                    
+                    <?php }?>
                 </ul>
             </nav>
     <?php }
