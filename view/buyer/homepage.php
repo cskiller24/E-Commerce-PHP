@@ -8,16 +8,16 @@ session_start();
         exit();
     }
 //**ERROR TRAPPING */
+    $cart_response = "";
     if(isset($_GET['cart']) && $_GET['cart'] == "success"){
-        echo "<script>setTimeout(function(){alert('ADDED TO CART');},500);</script>";
+        $cart_response = "ADDED TO CART";
     }
-    elseif(isset($_GET['cart']) && $_GET['cart'] == "failed"){
-        echo "<script>setTimeout(function(){alert('ADDED TO CART');},500);</script>";
+    if(isset($_GET['cart']) && $_GET['cart'] == "failed"){
+        $cart_response = "FAILED";
     }
     //**PAGINATION */
-    elseif(!isset($_GET['page'])){
+    if(!isset($_GET['page'])){
         header("Location: homepage.php?page=1");
-        exit();
     }
         include("../../classes/buyer/homepage.class.php");
         
@@ -42,6 +42,7 @@ session_start();
 <body>
     <?php include("header.php"); ?>
     <?php if($products != false){?>
+        <h2 class="text-center mt-3"><?php echo $cart_response; ?></h2>
         <div class="products my-4">
             <?php foreach($products as $product){?>
             <div class="product m-2 card p-3 border-dark">
@@ -52,7 +53,13 @@ session_start();
                     </div>
                         <div class="card-text text-center mt-3"><?php echo $product['price'] ?> PHP</div>
                     <div class="a-links">
-                        <a href="../../classes/buyer/homepage.class.php?<?php echo "cart=".$product['product_id']."&sid=".$product['seller_id']."&bid=".$_SESSION['buyer_id']; ?>" class="btn btn-dark card-text mt-3">Add to Cart</a>
+                        <form action="../../classes/buyer/add-to-cart.class.php" method="post">
+                            <input type="hidden" name="product_id" value="<?php echo $product['product_id']?>">
+                            <input type="hidden" name="buyer_id" value="<?php echo $_SESSION['buyer_id']?>">
+                            <input type="hidden" name="seller_id" value="<?php echo $product['seller_id']?>">
+                            <input type="hidden" name="page" value="<?php echo $_GET['page']?>">
+                            <input type="submit" value="Add to Cart" name="add-to-cart-homepage" class="btn btn-dark card-text mt-3">
+                        </form>
                         <a href="view.php?pid=<?php echo $product['product_id']; ?>" class="btn btn-dark card-text mt-3">View Item</a>
                     </div>
                 </div>
