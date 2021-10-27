@@ -32,7 +32,7 @@
 </head>
 <body>
     <?php include("header.php"); ?>
-    <?php if($product != false){?>
+    <?php if($product){?>
     
     <div class="mt-3 container">
         <h1 class="text-center mb-3"><?php echo $cart_response; ?></h1>
@@ -63,7 +63,11 @@
             </div>
         </div>
     </div>
-    <?php }?>
+    <?php }
+        else{
+           echo "<h1 class='text-center mt-5'>Error No Product</h1>";
+        }
+    ?>
 
 
 

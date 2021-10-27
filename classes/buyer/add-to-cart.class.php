@@ -7,14 +7,14 @@
         include("../../dbconnection.php");
         include("../../functions/buyer/add-to-cart.fx.php");
 
-        $result = addToCart($conn, $product_id, $buyer_id, $seller_id);
+        $result = addToCart($conn, $buyer_id, $product_id, $seller_id);
 
         if($result){
-            header("Location: ../../view/buyer/view.php?pid=$product_id&cart=success");
+            header("Location: ../../view/buyer/view.php?pid={$product_id}&cart=success");
             exit();
         }
         else{
-            header("Location: ../../view/buyer/view.php?pid=product_id&cart=failed");
+            header("Location: ../../view/buyer/view.php?pid={$product_id}&cart=failed");
             exit();
         }
     }
