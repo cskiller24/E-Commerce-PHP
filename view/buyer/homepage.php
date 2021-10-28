@@ -15,6 +15,9 @@ session_start();
     if(isset($_GET['cart']) && $_GET['cart'] == "failed"){
         $cart_response = "FAILED";
     }
+    if(isset($_GET['checkout']) && $_GET['checkout'] == "success"){
+        $cart_response = "Sucessfully Check Out All Items";
+    }
     //**PAGINATION */
     if(!isset($_GET['page'])){
         header("Location: homepage.php?page=1");

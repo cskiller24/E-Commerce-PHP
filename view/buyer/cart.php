@@ -68,7 +68,7 @@
     </div>
     <div class="container">
         <div class="button d-flex justify-content-center">
-            <button class="btn btn-dark py-3 h1" id="checkout"> <i class="far fa-credit-card" ></i> Checkout all Items</button>
+            <a href="checkout.php" class="btn btn-dark py-3 h1" id="checkout"> <i class="far fa-credit-card" ></i> Checkout all Items</a>
         </div>
     </div>
     <?php }
