@@ -8,7 +8,7 @@
             $address = $_POST['address'];
             $payment_method = $_POST['payment_method'];
             $all_products = $_SESSION['transact'];
-            $status = "pending";
+            $status = "Pending Order";
             var_dump($all_products);
             
             //**SET TRANSACTIONS AND DELETE THE CARTS*/
