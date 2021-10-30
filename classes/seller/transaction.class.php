@@ -17,9 +17,10 @@
             $result[$i]['buyer_name'] = $buyer_result['buyer_name'];
         }
         if($product_result == false){
-            $result[$i]['product_name'] = "Deleted"; 
+            $result[$i]['product_name'] = $product_result['product_name']; 
         }
         else{
-            $result[$i]['product_name'] = "Deleted"; 
+
+            $result[$i]['product_name'] = $product_result['product_name']; 
         }
     }
