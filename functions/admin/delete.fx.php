@@ -3,7 +3,6 @@
     
     function deleteSeller($conn, $seller_id){
         $products = getSellerProducts($conn, $seller_id);
-        var_dump($products);
         if($products){
             //**REMOVING ALL THE IMAGE IN IMAGE FOLDER */
             foreach($products as $product){
