@@ -44,6 +44,10 @@ session_start();
         <?php include("header.php"); ?>
         <h1 class="text-center mt-5"><?=$homepage_response?></h1>
         <?php if($_GET['view'] == "seller"){?>
+        <?php if($sellers == false){
+            echo "<h1 class='mt-5 text-center'>There are no registered Sellers</h1>";
+        }
+        else{?>
         <div class="sellers my-4">
             <?php foreach($sellers as $seller){?>
             <div class="seller card text-wrap m-2 border-danger text-center">
@@ -56,7 +60,7 @@ session_start();
                         View Seller Details
                     </a>
                     <button class="btn btn-warning btn-block mt-3" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                        Delete Seller Details
+                        Delete Seller
                     </button>
                 </div>
             </div>
@@ -82,9 +86,13 @@ session_start();
         </div>
             <?php } ?>
         </div>
-        <?php } ?>
+        <?php }} ?>
 
         <?php if($_GET['view'] == "buyer"){?>
+            <?php if($buyers == false){
+            echo "<h1 class='mt-5 text-center'>There are no registered Buyers</h1>";
+        }else{
+            ?>
         <div class="sellers my-4">
             <?php foreach($buyers as $buyer){?>
             <div class="seller card text-wrap m-2 border-dark text-center">
@@ -94,10 +102,10 @@ session_start();
                         <h3><?=$buyer['buyer_name']?></h3>
                     </div>
                     <a class="btn btn-warning btn-block mt-3" href="view.php?sid=<?=$buyer['buyer_id']?>">
-                        View Seller Details
+                        View Buyer Details
                     </a>
                     <button class="btn btn-warning btn-block mt-3" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                        Delete Seller Details
+                        Delete Buyer
                     </button>
                 </div>
             </div>
@@ -105,7 +113,7 @@ session_start();
             <div class="modal-dialog">
                 <div class="modal-content bg-light">
                     <div class="modal-header">
-                        <h5 class="modal-title text-center" id="staticBackdropLabel">Delete Seller?</h5>
+                        <h5 class="modal-title text-center" id="staticBackdropLabel">Delete Buyer?</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -123,7 +131,13 @@ session_start();
         </div>
             <?php } ?>
         </div>
-        <?php } ?>
+        <?php }} ?>
+
+        <?php if($_GET['view'] == "none"){
+            echo "<h1 class='text-center mt-5'>SELECT SELLER OR BUYER ABOVE</h1>";   
+        }?>
+
+        
         
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>

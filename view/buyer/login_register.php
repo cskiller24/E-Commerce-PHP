@@ -77,7 +77,7 @@ session_start();
                             <label for="RconfirmPassword" class="form-label">Confirm Password</label>
                             <input type="password" class="form-control" name="Rconfirm_password" required>
                         </div>
-                            <input type="submit" name="Rsubmit" value="Rsubmit" class="btn btn-outline-light btn-block w-100">
+                            <input type="submit" name="Rsubmit" value="Submit" class="btn btn-outline-light btn-block w-100">
                     </form>
                 </div>      
             </div>
