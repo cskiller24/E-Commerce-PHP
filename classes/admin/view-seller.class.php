@@ -1,10 +1,9 @@
 <?php
+    include("../../dbconnection.php");
     if(isset($_GET['sid'])){
         $seller_id = $_GET['sid'];
         
-        include("../../dbconnection.php");
         include("../../functions/admin/view.fx.php");
-
         $result = getSellerDetails($conn, $seller_id);
     }   
     else{

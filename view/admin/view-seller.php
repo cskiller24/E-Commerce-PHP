@@ -69,8 +69,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="post">
-                        <input type="hidden" name="seller_id" value="<?=$seller['seller_id']?>">
+                        <form action="../../classes/admin/view-seller.class.php" method="post">
+                        <input type="text" name="seller_id" value="<?=$seller['seller_id']?>">
                         <input type="password" name="password" placeholder="Enter Password to Confirm" class="form-control" required>    
                     </div>
                         <div class="modal-footer">
