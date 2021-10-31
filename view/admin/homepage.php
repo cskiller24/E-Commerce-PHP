@@ -56,34 +56,11 @@ session_start();
                     <div class="card-text text-wrap">
                         <h3><?=$seller['seller_name']?></h3>
                     </div>
-                    <a class="btn btn-warning btn-block mt-3" href="view-seller.php?sid=<?=$seller['seller_id']?>">
+                    <a class="btn btn-warning btn-block mt-5" href="view-seller.php?sid=<?=$seller['seller_id']?>">
                         View Seller Details
                     </a>
-                    <button class="btn btn-warning btn-block mt-3" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                        Delete Seller
-                    </button>
                 </div>
             </div>
-            <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content bg-light">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-center" id="staticBackdropLabel">Delete Seller?</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post" action="../../classes/admin/homepage.class.php">
-                            <input type="hidden" name="seller_id" value="<?=$seller['seller_id']?>">
-                            <input type="password" name="adminPassword" placeholder="Enter Password" class="form-control" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-warning" value="Submit" name="seller_submit">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
             <?php } ?>
         </div>
         <?php }} ?>
@@ -94,41 +71,18 @@ session_start();
         }else{
             ?>
         <div class="sellers my-4">
-            <?php foreach($buyers as $buyer){?>
+            <?php foreach($buyers as $buyer){ $id = $buyer['buyer_id']?>
             <div class="seller card text-wrap m-2 border-dark text-center">
                 <i class="fas fa-user fa-5x p-3"></i>
                 <div class="card-body">
                     <div class="card-text text-wrap">
                         <h3><?=$buyer['buyer_name']?></h3>
                     </div>
-                    <a class="btn btn-warning btn-block mt-3" href="view-buyer.php?bid=<?=$buyer['buyer_id']?>">
+                    <a class="btn btn-warning btn-block mt-5" href="view-buyer.php?bid=<?=$buyer['buyer_id']?>">
                         View Buyer Details
                     </a>
-                    <button class="btn btn-warning btn-block mt-3" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                        Delete Buyer
-                    </button>
                 </div>
             </div>
-            <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content bg-light">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-center" id="staticBackdropLabel">Delete Buyer?</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post" action="../../classes/admin/homepage.class.php">
-                            <input type="hidden" name="buyer_id" value="<?=$buyer['buyer_id']?>">
-                            <input type="password" name="adminPassword" placeholder="Enter Password" class="form-control" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-warning" value="Submit" name="buyer_submit">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
             <?php } ?>
         </div>
         <?php }} ?>

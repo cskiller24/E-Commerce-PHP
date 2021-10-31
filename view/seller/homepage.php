@@ -69,34 +69,7 @@
                     <div><?php echo $product['price']; ?> PHP</div>
                 </div>
                 <div class="a-links">
-                    <a href="view.php?pid=<?php echo $product['product_id']; ?>" class="btn btn-danger card-text mt-5">View</a>
-                    <button type="button" class="btn btn-danger card-text delete-btn" data-bs-toggle="modal" data-bs-target="#deleteProduct">
-                        Delete
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Delete -->
-        <div class="modal fade" id="deleteProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Delete Product</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="../../classes/seller/delete.class.php" method="post">
-                        <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
-                        <input type="hidden" name="seller_id" value="<?php echo $_SESSION['seller_id']; ?>">
-                        <input type="hidden" name="image" value="<?php echo $product['image']; ?>">
-                        <input type="password" name="password" placeholder="Enter Password" class="form-control" required>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" value="Submit" name="submit" class="btn btn-danger">
-                    </form>
-                </div>
+                    <a href="view.php?pid=<?php echo $product['product_id']; ?>" class="btn btn-danger card-text mt-5 w-100">View</a>
                 </div>
             </div>
         </div>
