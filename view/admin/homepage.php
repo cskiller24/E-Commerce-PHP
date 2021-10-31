@@ -101,7 +101,7 @@ session_start();
                     <div class="card-text text-wrap">
                         <h3><?=$buyer['buyer_name']?></h3>
                     </div>
-                    <a class="btn btn-warning btn-block mt-3" href="view-buyer.php?sid=<?=$buyer['buyer_id']?>">
+                    <a class="btn btn-warning btn-block mt-3" href="view-buyer.php?bid=<?=$buyer['buyer_id']?>">
                         View Buyer Details
                     </a>
                     <button class="btn btn-warning btn-block mt-3" data-bs-toggle="modal" data-bs-target="#deleteModal">
