@@ -14,3 +14,13 @@ Features<br>
     -   Admin Access can remove all of the products in seller<br>
      
 <br>Languages to be used PHP, Javascript and Bootstrap for designs
+
+## How to Install
+    1. First run the xampp application (apache and mysql)
+    2. Go to `localhost/phpmyadmin/` [here](localhost/phpmyadmin)
+    3. Create database called **e-commerce-php** (all lower case)
+    4. Download the source code and extract
+    5. In the database import the sql file in **e-commerce-php** database
+    6. Put the extracted source code in the `htdocs folder` 
+    7. And simply type localhost/E-Commerce-PHP/index.php
+    
