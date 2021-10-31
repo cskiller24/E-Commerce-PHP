@@ -4,14 +4,22 @@ To advance study of the upcoming project in EIT PHP E-Commerce
     -   Title: PHP - Ecommerce <br>
 
 Features<br>
-    -   Users can Register to be buyer and seller (separate accounts)<br>
-    -   Buyers can by products set by the seller<br>
-    -   Seller can list a product (including pictures)<br>
-    -   Seller can remove their product (unlist)<br>
-    -   Buyers can see their purchase history<br>
-    -   Sellers can view their product purchase<br>
-    -   Sellers can edit the product details<br>
-    -   Admin Access can remove all of the products in seller<br>
+   - **Buyers**
+     - Add to cart as many as they want
+     - Cart Functions (Add, Decrease, Remove and View)
+     - Checkout all in the cart
+     - Transaction Functions (Cancel the Product if status is "Pending Order")
+     - Change their password and details
+   - **SELLERS**
+     - Add many as products as they want 
+     - Edit and Delete a Product
+     - Pack the item in transaction page
+     - Change their details and password
+   - **ADMIN**
+     - View all the list of Sellers and Buyers
+     - Remove Buyer and Seller Account (same as their products and carts)
+     - See all the transactions
+     - Update the status to "Shipped" and "Delivered"
      
 <br>Languages to be used PHP, Javascript and Bootstrap for designs
 
