@@ -52,8 +52,7 @@ CREATE TABLE `buyers` (
   `buyer_email` varchar(255) NOT NULL,
   `buyer_contactNumber` varchar(15) NOT NULL,
   `buyer_name` varchar(255) NOT NULL,
-  `buyer_password` varchar(255) NOT NULL,
-  `registered_date` date NOT NULL DEFAULT current_timestamp()
+  `buyer_password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -98,8 +97,7 @@ CREATE TABLE `sellers` (
   `seller_email` varchar(255) NOT NULL,
   `seller_contactNumber` varchar(15) NOT NULL,
   `seller_name` varchar(255) NOT NULL,
-  `seller_password` varchar(255) NOT NULL,
-  `registered_date` date NOT NULL DEFAULT current_timestamp()
+  `seller_password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -119,8 +117,7 @@ CREATE TABLE `transactions` (
   `price` varchar(255) NOT NULL,
   `status` varchar(50) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `contact_number` varchar(100) NOT NULL,
-  `transaction_time` timestamp NOT NULL DEFAULT current_timestamp()
+  `contact_number` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
